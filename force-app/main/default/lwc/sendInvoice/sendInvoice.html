@@ -1,0 +1,34 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-quick-action-panel header="Email">
+ 
+  <div if:true={hasData}>
+    
+    <lightning-input type="text" value={contactDataEmail} label="Email" disabled="true"></lightning-input>
+
+    <lightning-input type="text" value={contactDataName} label="Name" disabled="true"></lightning-input>
+
+    <lightning-input type="text" value={emailSubject} label="Email Subject" disabled="true"></lightning-input>
+
+
+    <lightning-input-rich-text
+      value={EmailBody.data}
+      label="Email Message"
+    >
+
+    </lightning-input-rich-text>
+
+  </div>
+
+  <div>
+
+    <lightning-button label="Preview Invoice" onclick={previewActionPdf}></lightning-button>
+
+    <lightning-button label="Send Email" onclick={sendEmailAction}></lightning-button>
+
+    <lightning-button label="Close" onclick={closeFlow}></lightning-button>
+    
+  </div>
+
+  </lightning-quick-action-panel>
+</template>
