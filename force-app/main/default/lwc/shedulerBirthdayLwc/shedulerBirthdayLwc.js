@@ -17,7 +17,7 @@ export default class ShedulerBirthdayLwc extends LightningElement {
   connectedCallback() {
 
     this.getScheduledCron(); 
-
+    
   }
 
   getScheduledCron() {
@@ -90,7 +90,7 @@ export default class ShedulerBirthdayLwc extends LightningElement {
     .catch(error => {
 
       console.log(error.message);
-      
+
     });
    
   }
