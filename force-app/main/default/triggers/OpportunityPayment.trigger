@@ -14,7 +14,7 @@ trigger OpportunityPayment on Payment__c (after insert) {
     
     Opportunity opp = [SELECT Id,OwnerId ,Amount, paymentStatus__c,	Name  FROM Opportunity WHERE Name = :oppName];
 
-   	paymentList = [SELECT Id, OpportunityName__c,Amount__c FROM Payment__c Where OpportunityName__c = :oppName];
+    paymentList = [SELECT Id, OpportunityName__c,Amount__c FROM Payment__c Where OpportunityName__c = :oppName];
    	
 
     Schema.DescribeFieldResult fieldResult = Opportunity.paymentStatus__c.getDescribe();
