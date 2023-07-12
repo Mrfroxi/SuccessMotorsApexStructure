@@ -15,7 +15,9 @@ export default class ShedulerBirthdayLwc extends LightningElement {
   @track state;
 
   connectedCallback() {
+
     this.getScheduledCron(); 
+
   }
 
   getScheduledCron() {
@@ -23,26 +25,37 @@ export default class ShedulerBirthdayLwc extends LightningElement {
     checkFirstJobStatus({ cronJobName: this.cronJobNameIdentifier })
 
       .then(result => {
+
         if(result){
+
           this.state=true;
+
         }else{
+
           this.state =false;
+
         }
+
       })
 
       .catch(error => {
  
         console.log(error.message);
+
       });
+
   }
 
   batchOnce(){
+
     batchStart({batchName:this.batchNameIdentifier});
+
   }
 
   handleFormInputChange(event){
-    console.log(this.currentCronAsString);
+
     this.currentCronAsString = event.target.value;
+
   }
 
   scheduleHandlerActivate(){
@@ -52,12 +65,14 @@ export default class ShedulerBirthdayLwc extends LightningElement {
       cronJobName: this.cronJobNameIdentifier
     })
     .then(data => {
+
       this.state=true;
-      console.log(data);
+
     })
     .catch(error => {
       
       console.log(error.message);
+
     });
   
   
@@ -66,15 +81,16 @@ export default class ShedulerBirthdayLwc extends LightningElement {
 
   scheduleHandlerDelete(){
 
-    deleteScheduledJob({cronJobName:this.cronJobNameIdentifier}).then(data =>{
-      console.log(data);
-    })
+    deleteScheduledJob({cronJobName:this.cronJobNameIdentifier})
     .then(data => {
+
       this.state=false;
-      console.log(data)
+ 
     })
     .catch(error => {
+
       console.log(error.message);
+      
     });
    
   }
