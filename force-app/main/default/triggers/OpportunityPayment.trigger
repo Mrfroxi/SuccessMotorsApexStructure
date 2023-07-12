@@ -7,7 +7,7 @@ trigger OpportunityPayment on Payment__c (after insert) {
     
     for(Payment__c pay : Trigger.new) {
 
-        	oppName = pay.OpportunityName__c;
+        oppName = pay.OpportunityName__c;
 
     }
     
@@ -61,7 +61,7 @@ trigger OpportunityPayment on Payment__c (after insert) {
         }
 
         update opp;
-        
+
     }
     
 }

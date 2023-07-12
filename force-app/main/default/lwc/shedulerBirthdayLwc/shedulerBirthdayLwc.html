@@ -1,0 +1,41 @@
+<template>
+            <lightning-card >
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                    <h1 style="color: #8d8989; font-size:15px;">Title</h1>
+                    <div style="height: 1px; width: 100%; background-color: #ccc; margin-top:15px;"></div>
+                </div>
+                <div style="margin-left: 20px; margin-right: 20px;">
+                    <div>
+                        <p style="font-weight: bold; font-size: 12px; color: black; margin-top:15px;">Schedule batch</p>
+                    </div>  
+                    <div>
+                        <p style="font-size: 11px; color: #6f6969; margin-top:10px;">Description text</p>
+                    </div>  
+
+                    <label for="fieldid">
+                        <span style="color:red">*</span>CRON String<lightning-helptext style="display:inline-block; vertical-align:super; margin-left:5px;" content="You'll receive weekly updates"></lightning-helptext>
+                    </label>
+                   
+                    <lightning-input variant="label-hidden" id="fieldid" type="text" value={currentCronAsString} onchange={handleFormInputChange}></lightning-input>
+
+
+                   
+                    <lightning-formatted-url style="margin-top: 10px;" value="https://developer.salesforce.com/docs/atlas.en-us.salesforce_scheduler_developer_guide.meta/salesforce_scheduler_developer_guide/salesforce_scheduler_intro.htm" label="Read more about scheduling" target="_blank" ></lightning-formatted-url>
+
+                    <div style="text-align: right; margin-top: 15px;">
+                        <lightning-button variant="brand" label="Run Once" title="Primary action" onclick={batchOnce} class="slds-m-left_x-small"></lightning-button>
+
+                  
+                        <lightning-button  if:false={state}  variant="brand" label="Schedule batch" title="Primary action" onclick={scheduleHandlerActivate} class="slds-m-left_x-small"></lightning-button>
+
+                        <lightning-button if:true={state} variant="destructive" label="Destructive" title="Destructive action" onclick={scheduleHandlerDelete} class="slds-m-left_x-small"></lightning-button>
+
+                    </div>
+                </div>
+                              
+            
+            </lightning-card>
+
+
+
+</template>
