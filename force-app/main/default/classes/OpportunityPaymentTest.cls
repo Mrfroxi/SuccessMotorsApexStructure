@@ -16,7 +16,7 @@ public class OpportunityPaymentTest {
 
         insert testOpp;
 
-        Payment__c payment1 = new Payment__c(
+        Payment__c firstPayment = new Payment__c(
 
             Amount__c = 5000,
             OpportunityName__c = testOpp.Name
@@ -25,7 +25,7 @@ public class OpportunityPaymentTest {
 
         Test.startTest();
 
-            insert payment1;
+            insert firstPayment;
                 
             testOpp = [SELECT Id, paymentStatus__c FROM Opportunity WHERE Id = :testOpp.Id];
             
