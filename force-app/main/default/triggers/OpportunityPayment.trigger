@@ -49,7 +49,7 @@ trigger OpportunityPayment on Payment__c (after insert) {
                 Subject='Delivery of goods',
                 WhatId = opp.Id,
                 IsReminderSet = true,
-				ReminderDateTime = reminderDateTimeSet
+		ReminderDateTime = reminderDateTimeSet
             );
 
             insert task;
